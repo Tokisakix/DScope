@@ -312,7 +312,7 @@
                 <td class="right">
                     <div id="examples">
                       <b>Example logs:</b>
-                      <a class="log-link" href="" data-log="simple-reliable-broadcast.log" data-ordering="ascending" data-hostsort="#hostsortOrder" data-parser="\[\w+\] \[(?<date>([^ ]+ [^ ]+))\] [^ ]+ \[akka://Broadcast/user/(?<host>\w+)\] (?<clock>.*\}) (?<event>.*)">Reliable broadcast</a>
+                      <a class="log-link" href="" data-log="simple-reliable-broadcast.log" data-ordering="ascending" data-hostsort="#hostsortOrder" data-parser="\[(?<date>([^ ]+ [^ ]+))\] \[(?<host>[^\]]+)\] (?<clock>.*\}) (?<event>.*)">Reliable broadcast</a>
                       <a class="log-link" href="" data-log="chord.log" data-ordering="descending" data-hostsort="#hostsortLength" data-parser="(?<host>\S*) (?<clock>{.*})\n(?<event>.*)">Chord DHT</a>
                       <a class="log-link" href="" data-log="tsviz_fslock_24t_4sp.log" data-ordering="descending" data-hostsort="#hostsortLength" data-parser="(?<timestamp>(\d*)) (?<event>.*)\n(?<host>\w*) (?<clock>.*)">WiredTiger KV-store lock contention</a>
                       <a class="log-link" href="" data-log="tsviz_shared_var_4_threads.log" data-ordering="descending" data-hostsort="#hostsortLength" data-parser="(?<timestamp>(\d*)) (?<event>.*)\n(?<host>\w*) (?<clock>.*)">WiredTiger shared variable contention</a>
