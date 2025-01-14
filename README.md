@@ -16,3 +16,13 @@ docker compose up -d
 这会起一个叫做 `dscope_shiviz` 的容器，使用 Ningx 容器运行着 DScope 的前端服务。
 
 默认入口是 `localhost:4564`，通过修改 `.env` 文件中的 `SHIVIZ_PORT` 修改前端映射端口。
+
+### 模拟器
+
+```bash
+pip install -r requirements.txt
+pip install -e . --use-pep517
+dscope --version
+```
+
+预期得到输出 `DScope <version>`。
