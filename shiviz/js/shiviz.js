@@ -30,7 +30,7 @@ function Shiviz() {
         e.preventDefault();
 
         // logUrlPrefix is defined in dev.js & deployed.js
-        var prefix = "../log/";
+        var prefix = "./log/";
         var logName = $(this).data("log");
         var url = prefix + logName;
 
