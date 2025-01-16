@@ -1,5 +1,6 @@
 import time
 import random
+from tqdm import tqdm
 from datetime import datetime
 
 from dscope.utils import dscopeLogToVectorLog, dscopeLogDump
@@ -59,7 +60,7 @@ def simulate_distributed_system(nproc, steps, p):
     global processes
     processes = [Process(i, nproc, p) for i in range(nproc)]
 
-    for step in range(steps):
+    for step in tqdm(range(steps)):
         for process in processes:
             process.execute_transaction()
 

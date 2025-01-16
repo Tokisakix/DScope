@@ -4,4 +4,6 @@ temp.py
 
 *.egg-info
 
+build/
+dist/
 log/
