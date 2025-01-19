@@ -4,9 +4,11 @@ from . import __version__
 from .simulator import (
     logical_clock_simulator,
     vector_clock_simulator,
+    paxos_simulator,
+    two_pc_simulator,
 )
 
-simulator_lists = ["logical-clock", "vector-clock"]
+simulator_lists = ["logical-clock", "vector-clock", "paxos", "2pc"]
 
 def main():
     parser = argparse.ArgumentParser(description="DScope CLI")
@@ -30,6 +32,10 @@ def main():
         simulator_log = logical_clock_simulator()
     elif args.simulator == "vector-clock":
         simulator_log = vector_clock_simulator()
+    elif args.simulator == "paxos":
+        simulator_log = paxos_simulator()
+    elif args.simulator == "2pc":
+        simulator_log = two_pc_simulator()
 
     print(f"\033[92m[+] {simulator_log}\033[0m")
     return

@@ -8,6 +8,8 @@ DScope = **D**istributed **Scope**，分布式系统概念可视化系统。
 
 - 逻辑时钟 (logical-clock)
 - 向量时钟 (vector-clock)
+- Paxos (paxos)
+- 两阶段提交协议 (2pc)
 
 ## 1. 环境配置
 
@@ -42,6 +44,8 @@ dscope --version
 
 - 逻辑时钟 (logical-clock)
 - 向量时钟 (vector-clock)
+- Paxos (paxos)
+- 两阶段提交协议 (2pc)
 
 模拟器的超参数可以在 `dscope/settings.py` 中修改。
 
