@@ -38,7 +38,7 @@ class Process:
 
     def send_message(self, dst_host):
         current_time = self.clock.increment()
-        log_entry = (datetime.now().strftime("%m/%d/%Y %H:%M:%S.%f")[:-3], "send", f"#{self.pid}", f"#{dst_host}", f"message: {self.pid} -> {dst_host}")
+        log_entry = (datetime.now().strftime("%m/%d/%Y %H:%M:%S.%f")[:-3], "send", f"#{self.pid}", f"#{dst_host}", f"{self.pid} 发给 {dst_host}")
         transaction_log.append(log_entry)
         time.sleep(random.uniform(0.01, 0.1))
         processes[dst_host].receive_message(self.pid, current_time)
@@ -46,13 +46,13 @@ class Process:
 
     def receive_message(self, src_host, received_time):
         current_time = self.clock.update(received_time)
-        log_entry = (datetime.now().strftime("%m/%d/%Y %H:%M:%S.%f")[:-3], "recv", f"#{src_host}", f"#{self.pid}", f"message: {src_host} -> {self.pid}")
+        log_entry = (datetime.now().strftime("%m/%d/%Y %H:%M:%S.%f")[:-3], "recv", f"#{src_host}", f"#{self.pid}", f"{src_host} 发给 {self.pid}")
         transaction_log.append(log_entry)
         return
 
     def internal_transaction(self):
         current_time = self.clock.increment()
-        log_entry = (datetime.now().strftime("%m/%d/%Y %H:%M:%S.%f")[:-3], "none", f"#{self.pid}", f"#{self.pid}", f"message: {self.pid} do something")
+        log_entry = (datetime.now().strftime("%m/%d/%Y %H:%M:%S.%f")[:-3], "none", f"#{self.pid}", f"#{self.pid}", f"{self.pid} 内部事务")
         transaction_log.append(log_entry)
         return
 
@@ -81,7 +81,7 @@ def vector_clock_simulator():
 
     res_log = []
     for temp_vector_log in vector_log:
-        temp_res_log = (temp_vector_log[0], temp_vector_log[1], temp_vector_log[2], f"{temp_vector_log[3]}, vector clock: {temp_vector_log[2]}")
+        temp_res_log = (temp_vector_log[0], temp_vector_log[1], temp_vector_log[2], f"{temp_vector_log[3]}, 向量时钟为: {temp_vector_log[2]}")
         res_log.append(temp_res_log)
 
     dscopeLogDump(res_log, "vector_clock.log")

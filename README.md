@@ -61,7 +61,7 @@ dscope --version
 dscope --simulator logical-clock
 ```
 
-此时访问前端，在 `Example Logs` 中选择 `Logical Clock`，可以发现日志内容**动态**地渲染在页面上，点击 `Visualize` 按钮即可看到逻辑时钟的可视化演示。
+此时访问前端，在 `日志类型` 中选择 `Logical Clock`，可以发现日志内容**动态**地渲染在页面上，点击 `可视化` 按钮即可看到逻辑时钟的可视化演示。
 
 <div style="display: flex;">
   <img src="assets/logical_clock_1.jpg" alt="logical_clock_1.jpg" width="45%" />
@@ -78,9 +78,43 @@ dscope --simulator logical-clock
 dscope --simulator logical-clock
 ```
 
-此时访问前端，在 `Example Logs` 中选择 `Vector Clock`，可以发现日志内容**动态**地渲染在页面上，点击 `Visualize` 按钮即可看到逻辑时钟的可视化演示。
+此时访问前端，在 `日志类型` 中选择 `Vector Clock`，可以发现日志内容**动态**地渲染在页面上，点击 `可视化` 按钮即可看到逻辑时钟的可视化演示。
 
 <div style="display: flex;">
   <img src="assets/vector_clock_1.jpg" alt="vector_clock_1.jpg" width="45%" />
   <img src="assets/vector_clock_2.jpg" alt="vector_clock_2.jpg" width="45%" />
+</div>
+
+### 3.3 Paxos
+
+首先启动前端，确保 `localhost:4564` 可以访问。
+
+运行模拟器，生成 Paxos 的日志，此日志默认保存在 `log/paxos.log`。
+
+```bash
+dscope --simulator paxos
+```
+
+此时访问前端，在 `日志类型` 中选择 `Paxos`，可以发现日志内容**动态**地渲染在页面上，点击 `可视化` 按钮即可看到逻辑时钟的可视化演示。
+
+<div style="display: flex;">
+  <img src="assets/paxos_1.jpg" alt="paxos_1.jpg" width="45%" />
+  <img src="assets/paxos_2.jpg" alt="paxos_2.jpg" width="45%" />
+</div>
+
+### 3.3 两阶段提交协议
+
+首先启动前端，确保 `localhost:4564` 可以访问。
+
+运行模拟器，生成两阶段提交协议的日志，此日志默认保存在 `log/2pc.log`。
+
+```bash
+dscope --simulator 2pc
+```
+
+此时访问前端，在 `日志类型` 中选择 `2PC`，可以发现日志内容**动态**地渲染在页面上，点击 `可视化` 按钮即可看到逻辑时钟的可视化演示。
+
+<div style="display: flex;">
+  <img src="assets/2pc_1.jpg" alt="2pc_1.jpg" width="45%" />
+  <img src="assets/2pc_2.jpg" alt="2pc_2.jpg" width="45%" />
 </div>

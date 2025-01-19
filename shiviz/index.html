@@ -32,223 +32,110 @@
             <div id="versionContainer"></div>
         </header>
         <div class="content">
-            <h1>ShiViz</h1>
+            <h1>DScope</h1>
             <h2>
-                The <strong>ShiViz</strong> vis&shy;ual&shy;izat&shy;ion engi&shy;ne gene&shy;r&shy;ate&shy;s inter&shy;active comm&shy;uni&shy;ca&shy;tion graphs from dis&shy;tri&shy;but&shy;ed sys&shy;tem exe&shy;cut&shy;ion logs.
+                DScope = Distributed Scope，中山大学 2024 年分布式系统大作业 —— 分布式系统概念可视化系统。
             </h2>
 
-            <button class="try">Try out ShiViz</button>
+            <button class="try">使用 Dscope</button>
 
-            <h3>What am I looking at?</h3>
+            <h3>我在看什么？</h3>
             <p>
-                In the visualization:
+                在可视化中：
                 <ul>
                     <li>
-                        Time flows from top to bottom.
+                        时间从上到下流动。
                     </li>
                     <li>
-                        The left panel shows the log and the middle panel displays a <a href="http://en.wikipedia.org/wiki/Directed_acyclic_graph">DAG</a> of the partially ordered vector timestamps recorded in the input log.
+                        左侧面板显示日志，中间面板显示输入日志中记录的部分有序向量时间戳的<a href="http://en.wikipedia.org/wiki/Directed_acyclic_graph">有向无环图(DAG)</a>。
                     </li>
                     <li>
-                        A vertical line with a box at the top is a <strong>process timeline</strong>. This represents a single thread of execution (e.g., a process).
+                        带有顶部盒子的垂直线是<strong>进程时间线</strong>。这表示单个执行线程(例如，一个进程)。
                     </li>
                     <li>
-                        Circles on a process timeline are <strong>events</strong> that were executed by the process.
+                        进程时间线上的圆圈是由进程执行的<strong>事件</strong>。
                     </li>
                     <li>
-                        Diagonal lines connecting two events represent the
-                        <a href="http://en.wikipedia.org/wiki/Happened-before">happened-before</a> relation between the events: the higher of the two events happened <i>before</i> the second event.
+                        连接两个事件的对角线表示事件之间的
+                        <a href="http://en.wikipedia.org/wiki/Happened-before">happened-before</a>关系：较高的事件发生在第二个事件<em>之前</em>。
                     </li>
                     <li>
-                        Dashed lines represent transitive communication edges. These only appear when a process is hidden, and two processes that are not hidden communicated indirectly through this process.
+                        虚线表示传递性通信边。这些仅在进程被隐藏时出现，并且两个未隐藏的进程通过该进程间接通信。
                     </li>
                     <li>
-                        Larger circles represent merged local events. These have a number inside of them, indicating the number of events that they represent.
+                        较大的圆圈表示合并的本地事件。这些圆圈内有一个数字，表示它们代表的事件数量。
                     </li>
                     <li>
-                        Radiating lines that fade out represent communication edges to processes that are currently hidden from view.
+                        逐渐消失的辐射线表示与当前隐藏的进程的通信边。
                     </li>
                     <li>
-                        Each process is associated with a unique color. Log entries in the left column have the corresponding process color. By default, the log entries are sorted in the order in which the entries appear in the graph.
+                        每个进程都与唯一的颜色相关联。左侧列中的日志条目具有相应的进程颜色。默认情况下，日志条目按它们在图中出现的顺序排序。
                     </li>
                 </ul>
             </p>
 
-            <h3>How do I interact with the visualization?</h3>
+            <h3>如何与可视化界面交互？</h3>
             <p>
-                The visualization supports the following actions:
+                可视化界面支持以下操作：
                 <ul>
                   <li>
-                        <strong>Show process name or event info</strong>
+                        <strong>显示进程名称或事件信息</strong>
                         <br>
-                        Click on a process box or an event circle.
+                        点击进程框或事件圆圈。
                     </li>
                     <li>
-                        <strong>Hide a process timeline</strong>
+                        <strong>隐藏进程时间线</strong>
                         <br>
-                        Click a process box and select "hide". This
-                        will remove the process and its timeline from
-                        view. You can hide more than one process.
+                        点击进程框并选择“隐藏”。这将从视图中移除该进程及其时间线。您可以隐藏多个进程。
                     </li>
                     <li>
-                        <strong>Filter by communication to process(es)</strong>
+                        <strong>按与进程的通信过滤</strong>
                         <br>
-                        Click a process box and select "filter". The
-                        graph will be filtered to show only those
-                        processes/events that communicate with the
-                        filtered process. You can filter by more than
-                        one process.
+                        点击进程框并选择“过滤”。图将被过滤，仅显示与过滤进程通信的进程/事件。您可以按多个进程进行过滤。
                     </li>
                   <li>
-                        <strong>Expand/collapse non-communicating events</strong>
+                        <strong>展开/折叠非通信事件</strong>
                         <br>
-                        ShiViz collapses adjacent process events not
-                        incident on any communication edges into
-                        larger circles. Click on one of these nodes
-                        and select "expand" to undo this collapsing.
+                        ShiViz 将不相邻的进程事件折叠成较大的圆圈。点击其中一个节点并选择“展开”以取消此折叠。
                     </li>
                   <li>
-                    <strong>Search for keywords or subgraphs</strong>
+                    <strong>搜索关键词或子图</strong>
                         <br>
-                        ShiViz supports keyword search across the
-                        parsed fields. Search supports logical
-                        connectives and regular expressions. You can
-                        also search for subgraphs or communication 
-                        topologies of interest. You can search for a 
-                        pre-defined structure like broadcast
-                        or request-response, or you can define and
-                        search for a custom structure.
+                        ShiViz 支持在解析字段中进行关键词搜索。搜索支持逻辑连接词和正则表达式。您还可以搜索感兴趣的子图或通信拓扑。您可以搜索预定义的结构(如广播或请求-响应)，或者定义并搜索自定义结构。
                     </li>
                  <li>
-                    <strong>Show and hide differences between executions</strong>
+                    <strong>显示和隐藏执行之间的差异</strong>
                         <br>
-                        When viewing two executions side-by-side,
-                        click on "show differences" to highlight the
-                        differences between two executions. Hosts that
-                        are not common to both executions are
-                        represented as rhombuses. Processes present in
-                        both executions have their events compared by
-                        the <code>event</code> capture group. Different
-                        events are drawn as rhombuses.
+                        当并排查看两个执行时，点击“显示差异”以突出显示两个执行之间的差异。不在两个执行中都存在的主机用菱形表示。在两个执行中都存在的进程的事件通过<code>event</code>捕获组进行比较。不同的事件用菱形绘制。
                     </li>
 
                     <li>
-                    <strong>Explore execution clusters</strong>
+                    <strong>探索执行集群</strong>
                         <br>
-                        For logs with multiple executions, click on the
-                        "clusters" tab to separate executions into 
-                        different groups based on a chosen metric.
+                        对于具有多个执行的日志，点击“集群”选项卡以根据所选指标将执行分组。
 
-                        Cluster by the number of processes to group
-                        executions by the midpoint between the smallest 
-                        and largest number of processes.
+                        按进程数量聚类以根据最小和最大进程数量之间的中点将执行分组。
 
-                        Cluster by execution comparison to see an overview
-                        of how executions differ from a selected base.
+                        按执行比较聚类以查看执行与选定基线的差异概览。
                     </li>
 
                     <li>
-                    <strong>Search for network motifs</strong>
+                    <strong>搜索网络模体</strong>
                         <br>
-                        Click on the "motifs" tab to find frequently
-                        occurring communication patterns within and
-                        across executions. Search for 2, 3 or 4-event
-                        motifs that occur in at least 50% of the
-                        executions or that appear at least 5 times 
-                        within a single execution.
+                        点击“模体”选项卡以查找在单个执行内或跨执行中频繁出现的通信模式。搜索出现在至少50%的执行中或在一个执行中出现至少5次的2、3或4事件模体。
                     </li>
                 </ul>
             </p>
-
-            <h3 id="helpsectiontitle">How is this tool useful?</h3>
-            <p>
-                Here are four use-cases that ShiViz helps to support:
-                <ul>
-                    <li>
-                        <strong>Understanding the communication graph.</strong>
-                        <br>
-                        Quickly scan the graph to identify the presence or absence of certain communication patterns.
-                    </li>
-                    <li>
-                        <strong>Reasoning about ordering in a concurrent or distributed setting</strong>.
-                        <br>
-                        Visualize concurrency and the happened-before relation to understand if two events occurred concurrently, or if one happened before the other.
-                    </li>
-                    <li>
-                        <strong>Analyzing activity at processes that matter</strong>.
-                        <br>
-                        Hide processes (and their log lines) for a more focused visualization. Filter by communication to a process to see only those events at other processes that were likely to have influenced the execution of a process you care about.
-                    </li>
-
-                    <li>
-                      <strong>Execution comparison and
-                      differencing</strong>
-                      <br>
-                      Use ShiViz to process logs containing multiple
-                      executions. Compare executions pairwise,
-                      side-by-side. Use ShiViz to highlight event and
-                      host differences between two executions to
-                      understand where the executions diverge.
-                    </li>
-                </ul>
-            </p>
-
-            <h3>What is the input log format to the tool?</h3>
-
-            <p>
-                You can specify the log format using a regular expression on the Input page. The regular expression must contain the following three named capture groups:
-                <ul>
-                    <li><strong><code>event</code>:</strong> the description of the event</li>
-                    <li><strong><code>host</code>:</strong> the name of the process, thread, or host that executed the event</li>
-                    <li><strong><code>clock</code>:</strong> the vector clock associated with the event, in JSON format</li>
-                </ul>
-            </p>
-            <p>
-                You can also specify other capture groups other than <code>event</code> to capture <em>fields</em> (such as date, IP, priority) which are shown in the sidebar while hovering over an event in the visualization. These fields, unless sub-groups of the <code>event</code> group, will not be displayed as part of the event message.
-            </p>
-            <p>
-                For example, for a log entry like:
-                <pre>28/07/14 01:15 PM Event executed<br>process2 {"process1" : time1, "process2" : time2, ..., "processN" : timeN}</pre>
-
-                We might have a parser RegExp like:
-                <pre>(?&lt;date&gt;\d\d/\d\d/\d\d \d\d:\d\d (AM|PM)) (?&lt;event&gt;.*)\n(?&lt;host&gt;\w+) (?&lt;clock&gt;\{.*\})</pre>
-            </p>
-            <p>
-              The capture groups in ShiViz is not standard regexp
-              syntax. We recommend using a plain
-              <a href="https://www.debuggex.com/">JS regexp tester</a>
-              with regular capture groups to develop expressions, and
-              name the capture groups afterwards.
-            </p>
-
-            <h3>How can I generate logs to use with ShiViz?</h3>
-            <p>
-              We developed several ShiViz-compatible vector-clock
-              instrumentation <a href="https://distributedclocks.github.io/">libraries</a>
-              for C/C++/Java/Go systems.
-            </p>
-            <p>
-              In general, you can study the execution of any system
-              that produces logs in a format that can be parsed using
-              the RegExp mechanism above.
-            </p>
-
-            <h3>More information</h3>
-              <ul>
-                <li><a href="https://bitbucket.org/bestchai/shiviz/src">ShiViz source code</a></li>
-                <li>Contact: <a href="http://www.cs.ubc.ca/~bestchai/">Ivan Beschastnikh</a>, bestchai@cs.ubc.ca</li>
-                <li><a href="http://homes.cs.washington.edu/~mernst/pubs/debug-distributed-cacm2016-abstract.html">How to cite</a></li>
-              </ul>
         </div>
         <div class="shivizexample">
             <img src="images/shiviz-example.png" style="padding-top: 0px;"/><br/>
             <img src="images/event-selection.png"/><br/>
             <img src="images/process-selection.png"/><br/>
             <img src="images/event-expand-menu.png"/><br/>
-            <img src="images/search.png"/><br/>
+            <!-- <img src="images/search.png"/><br/>
             <img src="images/diff.png"/><br/>
             <img id="clusterImg" src="images/cluster.png"/>
-            <img src="images/motifs.png">
+            <img src="images/motifs.png"> -->
             </div>
         </div>
     </section>
@@ -264,19 +151,9 @@
                             <li class="disabled">a</li>
                         </ul>
                     </header>
-                    <h3>Options</h3>
-                    <!-- <div id="file_input">
-                        <label>Select a file: <input type="file" id="file"></label>
-                        <span id="file_icon">d</span>
-                        <div id="file_desc">Upload a log by selecting a file with the following format: <br><br>
-                        <li> The first line of the file is the log parsing regular expression. If left empty, the default regular expression 
-                        <span class="regex">"(?&ltevent&gt.*)\n(?&lthost&gt\S*) (?&ltclock&gt{.*})"</span> will be used.<br>
-                        <li> The second line of the file is the multiple executions regular expression delimiter. This can be left empty if the log does not contain multiple executions. <br>
-                        <li> The rest of the file is the log.
-                        </div>
-                    </div>-->
+                    <h3>可视化选项</h3>
                     <div class="option">
-                        <label>Log parsing regular expression:
+                        <label>日志解析正则表达式:
                             <div id="file_desc">Upload a log by selecting a file with the following format: <br><br>
                                 <li> The first line of the file is the log parsing regular expression. If left empty, the default regular expression 
                                 <span class="regex">"(?&ltevent&gt.*)\n(?&lthost&gt\S*) (?&ltclock&gt{.*})"</span> will be used.<br>
@@ -289,7 +166,7 @@
                             </p>                           
                         </label>
                     </div>
-                    <div class="option">
+                    <div class="option" style="display: none;">
                         <label>Multiple executions regular expression delimiter:
                             <input class="mono" type="text" id="delimiter">
                             <p class="notification_text" id="multi-exec">	
@@ -297,7 +174,7 @@
                             </p>     
                         </label>
                     </div>
-                    <div class="option">
+                    <div class="option" style="display: none;">
                         Sort processes in
                         <select id="ordering">
                             <option value="ascending">ascending</option>
@@ -307,11 +184,11 @@
                         <label><input id="hostsortLength" name="host_sort" type="radio" checked value="length"> # events</label>
                         <label><input id="hostsortOrder" name="host_sort" type="radio" value="order"> appearance in log</label>
                     </div>
-                    <button id="visualize" disabled>Visualize</button>
+                    <button id="visualize" disabled>可视化</button>
                 </td>
                 <td class="right">
                     <div id="examples">
-                      <b>Example Logs:</b>
+                      <b>案例日志:</b>
                       <a class="log-link" href="" data-log="logical_clock.log" data-ordering="ascending" data-hostsort="#hostsortOrder" data-parser="\[(?<date>([^ ]+ [^ ]+))\] \[(?<host>[^\]]+)\] (?<clock>.*\}) (?<event>.*)">Logical Clock</a>
                       <a class="log-link" href="" data-log="vector_clock.log" data-ordering="ascending" data-hostsort="#hostsortOrder" data-parser="\[(?<date>([^ ]+ [^ ]+))\] \[(?<host>[^\]]+)\] (?<clock>.*\}) (?<event>.*)">Vector Clock</a>
                         <a class="log-link" href="" data-log="paxos.log" data-ordering="ascending" data-hostsort="#hostsortOrder" data-parser="\[(?<date>([^ ]+ [^ ]+))\] \[(?<host>[^\]]+)\] (?<clock>.*\}) (?<event>.*)">Paxos</a>

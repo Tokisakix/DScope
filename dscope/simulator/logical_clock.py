@@ -38,7 +38,7 @@ class Process:
 
     def send_message(self, dst_host):
         current_time = self.clock.increment()
-        log_entry = (datetime.now().strftime("%m/%d/%Y %H:%M:%S.%f")[:-3], "send", f"#{self.pid}", f"#{dst_host}", f"message: {self.pid} -> {dst_host}, logical clock: {current_time}")
+        log_entry = (datetime.now().strftime("%m/%d/%Y %H:%M:%S.%f")[:-3], "send", f"#{self.pid}", f"#{dst_host}", f"{self.pid} 发给 {dst_host}, 逻辑时钟: {current_time}")
         transaction_log.append(log_entry)
         time.sleep(random.uniform(0.01, 0.1))
         processes[dst_host].receive_message(self.pid, current_time)
@@ -46,13 +46,13 @@ class Process:
 
     def receive_message(self, src_host, received_time):
         current_time = self.clock.update(received_time)
-        log_entry = (datetime.now().strftime("%m/%d/%Y %H:%M:%S.%f")[:-3], "recv", f"#{src_host}", f"#{self.pid}", f"message: {src_host} -> {self.pid}, logical clock: {current_time}")
+        log_entry = (datetime.now().strftime("%m/%d/%Y %H:%M:%S.%f")[:-3], "recv", f"#{src_host}", f"#{self.pid}", f"{src_host} 发给 {self.pid}, 逻辑时钟: {current_time}")
         transaction_log.append(log_entry)
         return
 
     def internal_transaction(self):
         current_time = self.clock.increment()
-        log_entry = (datetime.now().strftime("%m/%d/%Y %H:%M:%S.%f")[:-3], "none", f"#{self.pid}", f"#{self.pid}", f"message: {self.pid} do something, logical clock: {current_time}")
+        log_entry = (datetime.now().strftime("%m/%d/%Y %H:%M:%S.%f")[:-3], "none", f"#{self.pid}", f"#{self.pid}", f"{self.pid} 内部事件, 逻辑时钟: {current_time}")
         transaction_log.append(log_entry)
         return
 
