@@ -6,10 +6,10 @@ DScope = **D**istributed **Scope**，分布式系统概念可视化系统。
 
 目前支持模拟与可视化的分布式概念有:
 
-- 逻辑时钟 (logical-clock)
-- 向量时钟 (vector-clock)
-- Paxos (paxos)
-- 两阶段提交协议 (2pc)
+- [逻辑时钟](dscope/simulator/logical_clock.py) (logical-clock)
+- [向量时钟](dscope/simulator/vector_clock.py) (vector-clock)
+- [Paxos](dscope/simulator/paxos.py) (paxos)
+- [两阶段提交协议](dscope/simulator/two_pc.py) (2pc)
 
 ## 1. 环境配置
 
@@ -20,14 +20,24 @@ cd dscope/
 docker compose up -d
 ```
 
-这会起一个叫做 `dscope_shiviz` 的容器，使用 Ningx 容器运行着 DScope 的前端服务。
+这会起一个叫做 `dscope_shiviz` 的容器，使用 Ningx 容器在 `localhost:4564` 运行着 DScope 的前端服务。
 
 ### 1.2 模拟器
+
+可以选择源码安装 DScope 模拟器
 
 ```bash
 pip install -r requirements.txt
 pip install -e . --use-pep517
-dscope --version
+python -m dscope --version
+```
+
+或者通过 pypi 直接下载 DScope
+
+```bash
+pip install -r requirements.txt
+pip install dscope
+python -m dscope --version
 ```
 
 预期得到输出 `DScope <version>`。
@@ -42,12 +52,12 @@ dscope --version
 
 目前支持模拟的分布式场景有:
 
-- 逻辑时钟 (logical-clock)
-- 向量时钟 (vector-clock)
-- Paxos (paxos)
-- 两阶段提交协议 (2pc)
+- [逻辑时钟](dscope/simulator/logical_clock.py) (logical-clock)
+- [向量时钟](dscope/simulator/vector_clock.py) (vector-clock)
+- [Paxos](dscope/simulator/paxos.py) (paxos)
+- [两阶段提交协议](dscope/simulator/two_pc.py) (2pc)
 
-模拟器的超参数可以在 `dscope/settings.py` 中修改。
+各个模拟器的超参数可以在 [dscope/settings.py](dscope/settings.py) 中修改。
 
 ## 3. 案例演示
 
