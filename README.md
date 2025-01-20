@@ -1,5 +1,8 @@
 # DScope
 
+[![PyPI Version](https://img.shields.io/pypi/v/dscope)](https://pypi.org/project/dscope/)
+[![PyPI Downloads](https://img.shields.io/pypi/dm/dscope)](https://pypi.org/project/dscope/)
+
 中山大学 2024 年分布式系统大作业。
 
 DScope = **D**istributed **Scope**，分布式系统概念可视化系统。
